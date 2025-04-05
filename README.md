@@ -5,7 +5,7 @@ Export RSS using N8N and AI Agent.
 ![image](https://github.com/user-attachments/assets/8d47e9cf-d042-4e8b-9f50-d25041c86c79)
 
 ## Workflow file
-- coming soon ...
+- JSON file to import in your N8N instance could be found [here](https://github.com/vmapps/feed2ai/blob/main/feed2ai.json)
 
 ## Configuration
 - ``FILE_IN`` : string : ``"/home/data/config/<yourfeeds>.csv"``
