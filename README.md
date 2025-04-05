@@ -13,6 +13,7 @@ Use N8N workflow to read your favorites RSS feeds :
 - JSON file to import in your N8N instance could be found [here](https://github.com/vmapps/feed2ai/blob/main/feed2ai.json)
 
 ## Configuration
+-  configuration variables are defined as JSON format in ``Config`` component, just after ``Schedule Trigger`` compoment:   
 ```
 {
   "debug": true,
