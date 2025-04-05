@@ -1,5 +1,10 @@
 # feed2ai
-Export RSS using N8N and AI Agent.
+Use N8N workflow to read your favorites RSS feeds :
+- CSV file to provide RSS feeds as input
+- Google Gemini AI agent to build brief sumary of articles
+- HTML output could be send to text file
+- HTML output could be send to email address
+- HTML output could be send to Matrix room
 
 ## N8N Workflow
 ![image](https://github.com/user-attachments/assets/8d47e9cf-d042-4e8b-9f50-d25041c86c79)
