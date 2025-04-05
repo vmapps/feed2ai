@@ -13,13 +13,33 @@ Use N8N workflow to read your favorites RSS feeds :
 - JSON file to import in your N8N instance could be found [here](https://github.com/vmapps/feed2ai/blob/main/feed2ai.json)
 
 ## Configuration
-- ``FILE_IN`` : string : ``"/home/data/config/<yourfeeds>.csv"``
-- ``FILE_OUT`` : string : ``"/home/data/output/<yourfile>.html"``,
-- ``"DEBUG"`` : boolean : ``<true|false>``
-- ``"OUTPUT_FILE"`` : boolean : ``<true|false>``
-- ``"OUTPUT_EMAIL"`` : boolean : ``<true|false>``
-- ``"OUTPUT_MESSAGE"`` : boolean : ``<true|false>``
-- ``"OUTPUT_LANG"`` : string : ``<yourlanguage>`` (ex: "french")
+```
+{
+  "debug": true,
+  "ai": {
+    "agent": true,
+    "lang": "french"
+  },
+  "rss": {
+    "feeds": "/home/data/your-feeds.csv",
+    "maxitems": 5
+  },
+  "file": {
+    "active": true,
+    "name": "/home/data/your-summary.html"
+  },
+  "email": {
+    "active": true,
+    "from": "RSS Scrapper <your@sender>",
+    "to": "your@recipient",
+    "subject": "RSS breaking news"
+  },
+  "chat": {
+    "active": true,
+    "room": "!your-room-id:matrix.org"
+  }
+}
+```
 
 ## Feeds configuration sample
 ```
