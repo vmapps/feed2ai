@@ -173,7 +173,7 @@
     {
       "parameters": {
         "promptType": "define",
-        "text": "=Make a brief summary in {{ $('Config').item.json.lang }} language of :\n{{ $json.data }}",
+        "text": "=Make a brief summary in {{ $('Config').item.json.ai.lang }} language of :\n{{ $json.data }}",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
@@ -479,7 +479,7 @@
     {
       "parameters": {
         "mode": "raw",
-        "jsonOutput": "{\n  \"debug\": true,\n  \"lang\": \"french\",\n  \"ai\": {\n    \"agent\": true\n  },\n  \"rss\": {\n    \"feeds\": \"/home/data/your-feeds.csv\",\n    \"maxitems\": 5\n  },\n  \"file\": {\n    \"active\": true,\n    \"name\": \"/home/data/your-summary.html\"\n  },\n  \"email\" : {\n    \"active\": true,\n    \"from\": \"RSS Scrapper <your@sender>\",\n    \"to\": \"your@recipient\",\n    \"subject\": \"RSS breaking news\"\n  },\n  \"chat\" : {\n    \"active\": true,\n    \"room\": \"!your-room-id:matrix.org\"\n  }\n}\n",
+        "jsonOutput": "{\n  \"debug\": true,\n  \"ai\": {\n    \"agent\": true,\n    \"lang\": \"french\"\n  },\n  \"rss\": {\n    \"feeds\": \"/home/data/your-feeds.csv\",\n    \"maxitems\": 5\n  },\n  \"file\": {\n    \"active\": true,\n    \"name\": \"/home/data/your-summary.html\"\n  },\n  \"email\" : {\n    \"active\": true,\n    \"from\": \"RSS Scrapper <your@sender>\",\n    \"to\": \"your@recipient\",\n    \"subject\": \"RSS breaking news\"\n  },\n  \"chat\" : {\n    \"active\": true,\n    \"room\": \"!your-room-id:matrix.org\"\n  }\n}\n",
         "options": {
           "dotNotation": false
         }
