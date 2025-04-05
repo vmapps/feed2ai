@@ -1,5 +1,5 @@
 {
-  "name": "Spider RSS",
+  "name": "feed2ai",
   "nodes": [
     {
       "parameters": {
@@ -7,8 +7,8 @@
       },
       "type": "n8n-nodes-base.splitInBatches",
       "typeVersion": 3,
-      "position": [-340, -720],
-      "id": "a30fbe19-ee5b-4191-8e9a-dfce35d2b741",
+      "position": [-340, -985],
+      "id": "655dba48-00e0-4464-8993-0ab79d7c9729",
       "name": "Loop Over Items"
     },
     {
@@ -20,29 +20,29 @@
       },
       "type": "n8n-nodes-base.rssFeedRead",
       "typeVersion": 1.1,
-      "position": [-120, -720],
-      "id": "fffda705-169c-4bfe-ae0e-6478f7a19e9a",
+      "position": [-120, -1060],
+      "id": "0f07c781-95a3-4ad1-b3e0-10b10a38a24f",
       "name": "RSS Read1"
     },
     {
       "parameters": {
-        "maxItems": 5
+        "maxItems": "={{ $('Config').item.json.rss.maxitems }}"
       },
       "type": "n8n-nodes-base.limit",
       "typeVersion": 1,
-      "position": [100, -720],
-      "id": "3b39b1f4-11e9-4f8f-b042-f2c16df3df17",
+      "position": [100, -1060],
+      "id": "5664e0cd-67e7-4ac5-8f15-bf3b17794831",
       "name": "Limit"
     },
     {
       "parameters": {
-        "fileSelector": "={{ $('Globals').item.json.FILE_IN }}",
+        "fileSelector": "={{ $('Config').item.json.rss.feeds }}",
         "options": {}
       },
       "type": "n8n-nodes-base.readWriteFile",
       "typeVersion": 1,
-      "position": [-1000, -720],
-      "id": "819fda79-c2d4-407b-98b0-6dcbb738e78a",
+      "position": [-1000, -980],
+      "id": "f08c77ab-d7b5-4288-8923-d251ac3f31e1",
       "name": "Read/Write Files from Disk"
     },
     {
@@ -53,8 +53,8 @@
       },
       "type": "n8n-nodes-base.extractFromFile",
       "typeVersion": 1,
-      "position": [-780, -720],
-      "id": "0fc0b69d-18d8-446b-ac13-064f4c62b9ab",
+      "position": [-780, -985],
+      "id": "35484308-5d76-47c6-8490-cf4239451e0e",
       "name": "Extract from File"
     },
     {
@@ -84,65 +84,9 @@
       },
       "type": "n8n-nodes-base.filter",
       "typeVersion": 2.2,
-      "position": [-560, -720],
-      "id": "10605307-07a6-4e06-8c76-7e15079bb9e2",
+      "position": [-560, -985],
+      "id": "2ba50626-0c4e-406a-9530-4ea249dbcf5f",
       "name": "Filter"
-    },
-    {
-      "parameters": {
-        "assignments": {
-          "assignments": [
-            {
-              "id": "093e0863-939f-45e0-90ca-aec783fb29fd",
-              "name": "FILE_IN",
-              "value": "/home/data/config/feeds-cyber.csv",
-              "type": "string"
-            },
-            {
-              "id": "c920dd5d-0ddf-4040-aa14-737d77b403cf",
-              "name": "FILE_OUT",
-              "value": "/home/data/output/summary.html",
-              "type": "string"
-            },
-            {
-              "id": "dde089b9-0775-42fa-a660-8a0767d26018",
-              "name": "DEBUG",
-              "value": true,
-              "type": "boolean"
-            },
-            {
-              "id": "8f948eac-a2ad-4bc7-9858-45fccb1b3103",
-              "name": "OUTPUT_FILE",
-              "value": true,
-              "type": "boolean"
-            },
-            {
-              "id": "cecf4178-b384-4591-9abc-3745863914bc",
-              "name": "OUTPUT_EMAIL",
-              "value": true,
-              "type": "boolean"
-            },
-            {
-              "id": "71ab2e7e-4a0c-42a1-a08e-900d8f3312a4",
-              "name": "OUTPUT_MESSAGE",
-              "value": true,
-              "type": "boolean"
-            },
-            {
-              "id": "d0cd8d16-6ebf-4af9-beec-fa63d1739bb7",
-              "name": "OUTPUT_LANG",
-              "value": "french",
-              "type": "string"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 3.4,
-      "position": [-1220, -720],
-      "id": "822407d3-1844-472f-9018-afd0d9946107",
-      "name": "Globals"
     },
     {
       "parameters": {
@@ -167,34 +111,34 @@
       },
       "type": "n8n-nodes-base.set",
       "typeVersion": 3.4,
-      "position": [320, -720],
-      "id": "274c4b69-e3c3-4e21-ad79-3b35dc78a4e7",
+      "position": [320, -1060],
+      "id": "3d71171b-6d7e-40d3-8194-813c1df557d5",
       "name": "Add new fields"
     },
     {
       "parameters": {
         "content": "## Get active feeds from file",
-        "height": 240,
+        "height": 340,
         "width": 660,
         "color": 3
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
-      "position": [-1060, -800],
-      "id": "6e258f6e-7715-46be-98f9-9ea39c38cb0e",
+      "position": [-1060, -1165],
+      "id": "8083dec2-7018-4e03-b868-abccd1073eff",
       "name": "Sticky Note1"
     },
     {
       "parameters": {
         "content": "## Get first N items from each feed",
-        "height": 240,
-        "width": 820,
+        "height": 340,
+        "width": 1040,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
-      "position": [-370, -800],
-      "id": "de169606-7a2d-41b8-8ec4-af6aedc4bbcb",
+      "position": [-370, -1165],
+      "id": "1020de49-f8e9-476e-9364-d5b8212817a5",
       "name": "Sticky Note2"
     },
     {
@@ -206,8 +150,8 @@
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
-      "position": [-100, -1500],
-      "id": "9cc12842-45e8-4db5-accb-7d3c73c4274c",
+      "position": [-40, -2000],
+      "id": "0781c09c-292d-427e-9435-e4ff0cfac2c7",
       "name": "Sticky Note"
     },
     {
@@ -222,20 +166,20 @@
       },
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.2,
-      "position": [-1440, -720],
-      "id": "8d9adc54-34cd-4e2e-be9b-81ceecc484c5",
+      "position": [-1440, -880],
+      "id": "357a6796-18a5-44a8-9cb7-4fc8297043b7",
       "name": "Schedule Trigger"
     },
     {
       "parameters": {
         "promptType": "define",
-        "text": "=Make a brief summary in {{ $('Globals').item.json.OUTPUT_LANG }} language of :\n{{ $json.data }}",
+        "text": "=Make a brief summary in {{ $('Config').item.json.lang }} language of :\n{{ $json.data }}",
         "options": {}
       },
       "type": "@n8n/n8n-nodes-langchain.agent",
       "typeVersion": 1.8,
-      "position": [980, -720],
-      "id": "22fe4fea-e96b-431e-8b7d-08d4583ef964",
+      "position": [1200, -1160],
+      "id": "cf01f455-b67b-4f2e-873c-473221f4126c",
       "name": "AI Agent"
     },
     {
@@ -245,22 +189,22 @@
       },
       "type": "@n8n/n8n-nodes-langchain.lmChatGoogleGemini",
       "typeVersion": 1,
-      "position": [1068, -500],
-      "id": "27edd957-0dd4-453b-9c25-f76b799ab862",
+      "position": [1288, -940],
+      "id": "98594612-067f-4484-8046-6c041cf51380",
       "name": "Google Gemini Chat Model",
       "credentials": {}
     },
     {
       "parameters": {
         "content": "## Ask AI Agent to make summary and send email",
-        "height": 420,
-        "width": 1240,
+        "height": 540,
+        "width": 1260,
         "color": 5
       },
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
-      "position": [488, -780],
-      "id": "34840630-ae07-4fd0-bd58-0f8eb7cb04a2",
+      "position": [698, -1340],
+      "id": "8c119356-b984-45c1-870e-88b069f4d74a",
       "name": "Sticky Note3"
     },
     {
@@ -278,8 +222,8 @@
       },
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1.1,
-      "position": [540, -720],
-      "id": "96f1b706-2146-40d4-86d0-cf45a243da4e",
+      "position": [540, -1060],
+      "id": "27d93cf4-897f-4245-b8b0-0f6ce6305cb5",
       "name": "Group HTML items"
     },
     {
@@ -289,8 +233,8 @@
       },
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
-      "position": [760, -720],
-      "id": "06d6fe8b-382a-4574-8ad0-34ec75d3da1b",
+      "position": [980, -1160],
+      "id": "f96ee5b0-59df-4697-9658-38fa8fd170ed",
       "name": "HTML to Markdown"
     },
     {
@@ -301,37 +245,37 @@
       },
       "type": "n8n-nodes-base.markdown",
       "typeVersion": 1,
-      "position": [1356, -720],
-      "id": "43aa385b-8268-4d09-8ef6-e13c5e2de81f",
+      "position": [1576, -1160],
+      "id": "3167f4df-4602-49b0-b766-1c8543b8e44e",
       "name": "Markdown  to HTML"
     },
     {
       "parameters": {
-        "fromEmail": "RSS Scrapper <sender-email-address>",
-        "toEmail": "recipient-email-address",
-        "subject": "=RSS breaking news",
+        "fromEmail": "={{ $('Config').item.json.email.from }}",
+        "toEmail": "={{ $('Config').item.json.email.to }}",
+        "subject": "={{ $('Config').item.json.email.subject }}",
         "html": "={{ $json.html }}",
         "options": {}
       },
       "type": "n8n-nodes-base.emailSend",
       "typeVersion": 2.1,
-      "position": [620, -1240],
-      "id": "4283b732-d92b-412a-9e83-a930a077a652",
+      "position": [740, -1740],
+      "id": "09ff2676-b1bc-4963-8c0b-481186f36f52",
       "name": "Send to Email",
-      "webhookId": "868801b2-f227-4a83-a71a-3770e6d00e24",
+      "webhookId": "d6962336-4a51-4372-a23d-392d0aad8f71",
       "credentials": {}
     },
     {
       "parameters": {
         "operation": "write",
-        "fileName": "={{ $('Globals').item.json.FILE_OUT }}",
+        "fileName": "={{ $('Config').item.json.file.name }}",
         "dataPropertyName": "=data",
         "options": {}
       },
       "type": "n8n-nodes-base.readWriteFile",
       "typeVersion": 1,
-      "position": [840, -1440],
-      "id": "1defd440-84c4-4cb7-b274-f8b251e55dcd",
+      "position": [960, -1940],
+      "id": "1152befb-718c-435b-b2cf-66c4affb66e6",
       "name": "Read/Write Files from Disk2"
     },
     {
@@ -342,20 +286,20 @@
       },
       "type": "n8n-nodes-base.convertToFile",
       "typeVersion": 1.1,
-      "position": [620, -1440],
-      "id": "794bc933-a0fb-464c-bdc1-0c055c27a058",
+      "position": [740, -1940],
+      "id": "f8df8bae-7603-4055-9881-e774489c5fd8",
       "name": "Convert to File1"
     },
     {
       "parameters": {
-        "roomId": "!room-id:matrix.org",
+        "roomId": "={{ $('Config').item.json.chat.room }}",
         "text": "={{ $json.html }}",
         "messageFormat": "org.matrix.custom.html"
       },
       "type": "n8n-nodes-base.matrix",
       "typeVersion": 1,
-      "position": [620, -1040],
-      "id": "4f9a148a-04c1-4457-be04-89d801d2f68b",
+      "position": [740, -1540],
+      "id": "3639d2cf-ab06-455c-aa64-31a4cbebce04",
       "name": "Matrix",
       "credentials": {}
     },
@@ -374,8 +318,8 @@
       },
       "type": "n8n-nodes-base.summarize",
       "typeVersion": 1.1,
-      "position": [-40, -1240],
-      "id": "6a182df6-cb89-45ce-83eb-847e6e98f99a",
+      "position": [80, -1740],
+      "id": "59bee858-1fe3-4076-99d0-92ab46f37664",
       "name": "Concatenate HTML"
     },
     {
@@ -390,7 +334,7 @@
           "conditions": [
             {
               "id": "bbe171aa-9c18-4c45-b98d-706064ab90aa",
-              "leftValue": "={{ $('Globals').item.json.OUTPUT_FILE }}",
+              "leftValue": "={{ $('Config').item.json.file.active }}",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -405,8 +349,8 @@
       },
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
-      "position": [400, -1440],
-      "id": "17f1aabc-465e-4170-8e31-579d29c06490",
+      "position": [520, -1940],
+      "id": "2bde89ed-95b8-4dda-b247-b8dc81e2f910",
       "name": "If Output to File"
     },
     {
@@ -421,7 +365,7 @@
           "conditions": [
             {
               "id": "bbe171aa-9c18-4c45-b98d-706064ab90aa",
-              "leftValue": "={{ $('Globals').item.json.OUTPUT_FILE }}",
+              "leftValue": "={{ $('Config').item.json.email.active }}",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -436,8 +380,8 @@
       },
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
-      "position": [400, -1240],
-      "id": "597e65c6-bd28-4e6a-a335-0672a0e4ffa0",
+      "position": [520, -1740],
+      "id": "a6d380a1-2651-407f-ac1c-8fb7d38af621",
       "name": "If Output to Email"
     },
     {
@@ -452,7 +396,7 @@
           "conditions": [
             {
               "id": "bbe171aa-9c18-4c45-b98d-706064ab90aa",
-              "leftValue": "={{ $('Globals').item.json.OUTPUT_MESSAGE }}",
+              "leftValue": "={{ $('Config').item.json.chat.active }}",
               "rightValue": "",
               "operator": {
                 "type": "boolean",
@@ -467,8 +411,8 @@
       },
       "type": "n8n-nodes-base.if",
       "typeVersion": 2.2,
-      "position": [400, -1040],
-      "id": "a4d81b78-fa89-414a-8fc5-dc84ef2871bb",
+      "position": [520, -1540],
+      "id": "62b8b5ee-3aab-4970-b501-3f333e3e3ec7",
       "name": "If Output to Message"
     },
     {
@@ -477,8 +421,8 @@
       },
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
-      "position": [1576, -595],
-      "id": "ddf84e77-4063-4e5c-b6cb-47ab3807a20a",
+      "position": [1796, -1035],
+      "id": "33badb9e-1117-4149-98bb-0c7f5dac20bc",
       "name": "Set HTML Block"
     },
     {
@@ -487,9 +431,64 @@
       },
       "type": "n8n-nodes-base.html",
       "typeVersion": 1.2,
-      "position": [180, -1240],
-      "id": "aba43bd4-f049-4b69-a699-8d3e192bd3a2",
+      "position": [300, -1740],
+      "id": "a763e5a9-6f85-4693-b46d-7e41106283ac",
       "name": "Set HTML Page"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 2
+          },
+          "conditions": [
+            {
+              "id": "bbe171aa-9c18-4c45-b98d-706064ab90aa",
+              "leftValue": "={{ $('Config').item.json.ai.agent }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.2,
+      "position": [760, -1060],
+      "id": "4e3bef2f-e542-4326-ac40-5dc0bce56e49",
+      "name": "If Output to Message1"
+    },
+    {
+      "parameters": {
+        "html": "<h4>{{ $('Loop Over Items').item.json.site }}</h4>\n<ul>\n  {{ $('Group HTML items').item.json.concatenated_item_html }}\n</ul>\n"
+      },
+      "type": "n8n-nodes-base.html",
+      "typeVersion": 1.2,
+      "position": [980, -960],
+      "id": "37fb54fc-e807-4abe-9f41-48c6271da18d",
+      "name": "Set HTML Block1"
+    },
+    {
+      "parameters": {
+        "mode": "raw",
+        "jsonOutput": "{\n  \"debug\": true,\n  \"lang\": \"french\",\n  \"ai\": {\n    \"agent\": true\n  },\n  \"rss\": {\n    \"feeds\": \"/home/data/your-feeds.csv\",\n    \"maxitems\": 5\n  },\n  \"file\": {\n    \"active\": true,\n    \"name\": \"/home/data/your-summary.html\"\n  },\n  \"email\" : {\n    \"active\": true,\n    \"from\": \"RSS Scrapper <your@sender>\",\n    \"to\": \"your@recipient\",\n    \"subject\": \"RSS breaking news\"\n  },\n  \"chat\" : {\n    \"active\": true,\n    \"room\": \"!your-room-id:matrix.org\"\n  }\n}\n",
+        "options": {
+          "dotNotation": false
+        }
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [-1220, -980],
+      "id": "dee7cc0c-89da-405c-a593-91226ba66c82",
+      "name": "Config"
     }
   ],
   "pinData": {},
@@ -556,17 +555,6 @@
         ]
       ]
     },
-    "Globals": {
-      "main": [
-        [
-          {
-            "node": "Read/Write Files from Disk",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Filter": {
       "main": [
         [
@@ -593,7 +581,7 @@
       "main": [
         [
           {
-            "node": "Globals",
+            "node": "Config",
             "type": "main",
             "index": 0
           }
@@ -626,7 +614,7 @@
       "main": [
         [
           {
-            "node": "HTML to Markdown",
+            "node": "If Output to Message1",
             "type": "main",
             "index": 0
           }
@@ -741,17 +729,57 @@
           }
         ]
       ]
+    },
+    "If Output to Message1": {
+      "main": [
+        [
+          {
+            "node": "HTML to Markdown",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Set HTML Block1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set HTML Block1": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Config": {
+      "main": [
+        [
+          {
+            "node": "Read/Write Files from Disk",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "active": false,
   "settings": {
     "executionOrder": "v1"
   },
-  "versionId": "7bd2f671-68f0-451c-9b21-584641eab99d",
+  "versionId": "652e5216-34b0-4d7c-9d55-2609c0fa8198",
   "meta": {
     "templateCredsSetupCompleted": true,
     "instanceId": "e7624cfedacbc4451eaf214e1f7df52f4cae271426213f2120586adcdf848c30"
   },
-  "id": "naq19CI40aBi7IHw",
+  "id": "PNNzttaovgQQy6zd",
   "tags": []
 }
