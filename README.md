@@ -34,8 +34,11 @@ Insinuator,http://www.insinuator.net/feed/,false
 ```
 
 ## Email output samples
-- using  french language as output
+- using english language as output
 ![image](https://github.com/user-attachments/assets/2b696e3c-dfd3-49ec-806f-ec759abcd391)
 
+- using french language as output
+![image](https://github.com/user-attachments/assets/caa9015d-e148-462a-9815-aefd15923740)
+
 - using spanish language as  output
-![image](https://github.com/user-attachments/assets/0502e406-4547-4f24-a4c9-5186af497229)
+![image](https://github.com/user-attachments/assets/bb13c8f8-9ba9-45ac-a32a-bd1d704601bb)
