@@ -35,10 +35,10 @@ Insinuator,http://www.insinuator.net/feed/,false
 
 ## Email output samples
 - using english language as output
-![image](https://github.com/user-attachments/assets/2b696e3c-dfd3-49ec-806f-ec759abcd391)
+![image](https://github.com/vmapps/feed2ai/blob/main/screenshots/email-english.png)
 
 - using french language as output
-![image](https://github.com/user-attachments/assets/caa9015d-e148-462a-9815-aefd15923740)
+![image](https://github.com/vmapps/feed2ai/blob/main/screenshots/email-french.png)
 
 - using spanish language as  output
-![image](https://github.com/user-attachments/assets/bb13c8f8-9ba9-45ac-a32a-bd1d704601bb)
+![image](https://github.com/vmapps/feed2ai/blob/main/screenshots/email-spanish.png)
