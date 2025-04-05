@@ -16,10 +16,10 @@ Use N8N workflow to read your favorites RSS feeds :
 - ``FILE_IN`` : string : ``"/home/data/config/<yourfeeds>.csv"``
 - ``FILE_OUT`` : string : ``"/home/data/output/<yourfile>.html"``,
 - ``"DEBUG"`` : boolean : ``<true|false>``
-- ``"OUPUT_FILE"`` : boolean : ``<true|false>``
-- ``"OUPUT_EMAIL"`` : boolean : ``<true|false>``
-- ``"OUPUT_MESSAGE"`` : boolean : ``<true|false>``
-- ``"OUPUT_LANG"`` : string : ``<yourlanguage>`` (ex: "french")
+- ``"OUTPUT_FILE"`` : boolean : ``<true|false>``
+- ``"OUTPUT_EMAIL"`` : boolean : ``<true|false>``
+- ``"OUTPUT_MESSAGE"`` : boolean : ``<true|false>``
+- ``"OUTPUT_LANG"`` : string : ``<yourlanguage>`` (ex: "french")
 
 ## Feeds configuration sample
 ```
