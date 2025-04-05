@@ -33,7 +33,9 @@ ESET,http://feeds.feedburner.com/eset/blog/,false
 Insinuator,http://www.insinuator.net/feed/,false
 ```
 
-## Email output sample
+## Email output samples
+- using  french language as output
 ![image](https://github.com/user-attachments/assets/2b696e3c-dfd3-49ec-806f-ec759abcd391)
 
-
+- using spanish language as  output
+![image](https://github.com/user-attachments/assets/0502e406-4547-4f24-a4c9-5186af497229)
