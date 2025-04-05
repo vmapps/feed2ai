@@ -7,7 +7,7 @@ Use N8N workflow to read your favorites RSS feeds :
 - HTML output could be send to Matrix room
 
 ## N8N Workflow
-![image](https://github.com/user-attachments/assets/8d47e9cf-d042-4e8b-9f50-d25041c86c79)
+<kbd>![image](https://github.com/vmapps/feed2ai/blob/main/screenshots/n8n-workflow.png)</kbd>
 
 ## Workflow file
 - JSON file to import in your N8N instance could be found [here](https://github.com/vmapps/feed2ai/blob/main/feed2ai.json)
@@ -35,10 +35,18 @@ Insinuator,http://www.insinuator.net/feed/,false
 
 ## Email output samples
 - using english language as output
-![image](https://github.com/vmapps/feed2ai/blob/main/screenshots/email-english.png)
+
+<kbd>![image](https://github.com/vmapps/feed2ai/blob/main/screenshots/email-english.png)</kbd>
 
 - using french language as output
-![image](https://github.com/vmapps/feed2ai/blob/main/screenshots/email-french.png)
+
+<kbd>![image](https://github.com/vmapps/feed2ai/blob/main/screenshots/email-french.png)</kbd>
 
 - using spanish language as  output
-![image](https://github.com/vmapps/feed2ai/blob/main/screenshots/email-spanish.png)
+
+<kbd>![image](https://github.com/vmapps/feed2ai/blob/main/screenshots/email-spanish.png)</kbd>
+
+
+
+
+
